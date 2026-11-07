@@ -1,21 +1,17 @@
 # VERIFICA
 
-Plataforma de apoio à checagem de informações e combate à desinformação.
+Aplicação de apoio à checagem de informações e combate à desinformação.
 
-## Requisitos
+## Configuração
+1. Configure `OPENAI_API_KEY` como variável secreta na Vercel.
+2. Execute `npm install`.
+3. Execute `npm run dev`.
 
-- Node.js 20.9 ou superior
-- npm
+## API
+`POST /api/analyze` recebe `{ "content": "afirmação ou link", "mode": "texto" }`.
+A rota usa a Responses API com a ferramenta `web_search`. A chave fica exclusivamente no servidor.
 
-## Executar localmente
-
-```bash
-npm install
-npm run dev
-```
-
-Abra http://localhost:3000.
-
-## Estado atual
-
-Esta é a primeira versão da interface. O formulário ainda não consulta serviços externos nem emite vereditos reais. A próxima etapa é integrar pesquisa na web, fontes verificáveis e um provedor de IA com critérios transparentes.
+## Limitações e próximos passos
+- Conteúdo limitado a 5.000 caracteres.
+- Ainda é necessário adicionar rate limiting, proteção contra abuso e monitoramento de custos antes de abrir ao público.
+- A análise é assistida por IA e não substitui checagem humana especializada.
